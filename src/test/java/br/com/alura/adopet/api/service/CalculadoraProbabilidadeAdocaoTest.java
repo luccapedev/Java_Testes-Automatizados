@@ -15,6 +15,7 @@ class CalculadoraProbabilidadeAdocaoTest {
     void deveriaRetornarProbabilidadeAltaParaPetComIdadeBaixaEPesoBaixo() {
         //idade 4 anos e 4kg - ALTA
 
+        //ARRANGE
         Abrigo abrigo = new Abrigo(new CadastroAbrigoDto(
                 "Abrigo feliz",
                 "94999999999",
@@ -29,9 +30,11 @@ class CalculadoraProbabilidadeAdocaoTest {
                 4.0f
         ), abrigo);
 
+        //ACT
         CalculadoraProbabilidadeAdocao calculadora = new CalculadoraProbabilidadeAdocao();
         ProbabilidadeAdocao probabilidade = calculadora.calcular(pet);
 
+        //ASSERT
         Assertions.assertEquals(ProbabilidadeAdocao.ALTA,probabilidade);
     }
 
@@ -39,6 +42,7 @@ class CalculadoraProbabilidadeAdocaoTest {
     void deveriaRetornarProbabilidadeMediaParaPetComIdadeAltaEPesoBaixo() {
         //idade 15 anos e 4kg - MEDIA
 
+        //ARRANGE
         Abrigo abrigo = new Abrigo(new CadastroAbrigoDto(
                 "Abrigo feliz",
                 "94999999999",
@@ -53,9 +57,11 @@ class CalculadoraProbabilidadeAdocaoTest {
                 4.0f
         ), abrigo);
 
+        //ACT
         CalculadoraProbabilidadeAdocao calculadora = new CalculadoraProbabilidadeAdocao();
         ProbabilidadeAdocao probabilidade = calculadora.calcular(pet);
 
+        //ASSERT
         Assertions.assertEquals(ProbabilidadeAdocao.MEDIA,probabilidade);
     }
 }
